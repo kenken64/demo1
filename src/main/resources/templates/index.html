@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spring boot index page example</title>
+  </head>
+  <body>
+    <span th:text="${currTime}"></span>
+    <br />
+    <tbody>
+      <tr th:each="person: ${person}">
+        <td th:text="${person.id}" />
+        <td th:text="${person.name}" />
+      </tr>
+    </tbody>
+  </body>
+</html>
