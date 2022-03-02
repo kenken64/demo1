@@ -3,17 +3,24 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.example.demo.model.Person;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping(path="/test", produces=MediaType.TEXT_HTML_VALUE)
 public class IndexController {
-    @RequestMapping("/")
+    Logger logger = Logger.getLogger(IndexController.class.getName());
+
+    @RequestMapping("/currtime")
     public String index(Model model) {
+        logger.log(Level.INFO, "current date time");
         model.addAttribute("currTime", new Date().toString());
         return "index";
     }
